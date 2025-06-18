@@ -1,9 +1,9 @@
 .userListContainer {
   background: #222e35;
   color: #fff;
-  border-radius: 12px;
-  max-width: 400px;
-  margin: 40px auto;
+  border-radius: 18px;
+  max-width: 320px;         /* Más compacto */
+  margin: 40px 0 40px 40px; /* Solo margen izquierdo */
   box-shadow: 0 4px 24px #0006;
   padding: 0;
   overflow: hidden;

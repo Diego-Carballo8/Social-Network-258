@@ -1,5 +1,6 @@
 // src/features/chat/Chat.jsx
 import { useEffect, useState, useRef } from "react";
+import styles from "./chat.module.css";
 
 export default function Chat({ userId }) {
   const [messages, setMessages] = useState([]);
@@ -41,109 +42,37 @@ export default function Chat({ userId }) {
   }, [messages]);
 
   return (
-    <div style={{
-      background: "#fff",
-      borderRadius: 16,
-      maxWidth: 320,
-      margin: "24px auto",
-      boxShadow: "0 4px 24px #0002",
-      padding: 0,
-      display: "flex",
-      flexDirection: "column",
-      height: 500
-    }}>
-      <div style={{
-        background: "#1976d2",
-        color: "#fff",
-        padding: "10px 16px",
-        borderTopLeftRadius: 16,
-        borderTopRightRadius: 16,
-        fontWeight: "bold",
-        fontSize: 16
-      }}>
-        Chatea con tus amigos!
+    <div className={styles.chatContainer}>
+      <div className={styles.chatHeader}>
+        Chat
       </div>
-      <div style={{
-        flex: 1,
-        overflowY: "auto",
-        padding: 12,
-        display: "flex",
-        flexDirection: "column",
-        gap: 8
-      }}>
+      <div className={styles.messagesContainer}>
         {messages.map((msg, idx) => (
           <div
             key={idx}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: msg.from === myId ? "flex-end" : "flex-start"
-            }}
+            className={`${styles.messageRow} ${msg.from === myId ? styles.me : ""}`}
           >
-            <div style={{
-              background: msg.from === myId ? "#1976d2" : "#f1f0f0",
-              color: msg.from === myId ? "#fff" : "#222",
-              borderRadius: 16,
-              padding: "8px 16px",
-              maxWidth: "70%",
-              fontSize: 15,
-              marginBottom: 2,
-              wordBreak: "break-word",
-              boxShadow: msg.from === myId
-                ? "0 2px 8px #1976d233"
-                : "0 2px 8px #aaa2"
-            }}>
+            <div className={styles.messageBubble}>
               {msg.text}
             </div>
-            <div style={{
-              fontSize: 11,
-              color: "#888",
-              marginBottom: 4,
-              marginRight: msg.from === myId ? 4 : 0,
-              marginLeft: msg.from === myId ? 0 : 4
-            }}>
-              {msg.createdAt ? new Date(msg.createdAt).toLocaleTimeString() : ""}
-            </div>
+            <span className={styles.timestamp}>
+              {msg.createdAt
+                ? new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                : ""}
+            </span>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          padding: 8,
-          borderTop: "1px solid #eee",
-          display: "flex",
-          gap: 6,
-          background: "#fff"
-        }}
-      >
+      <form className={styles.inputContainer} onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Escribe tu mensaje..."
           value={message}
           onChange={e => setMessage(e.target.value)}
-          style={{
-            flex: 1,
-            borderRadius: 8,
-            border: "1px solid #b0e0e6",
-            padding: "8px 10px",
-            fontSize: 15,
-            outline: "none"
-          }}
+          placeholder="Escribe un mensaje..."
+          className={styles.input}
         />
-        <button
-          type="submit"
-          style={{
-            background: "#1976d2",
-            color: "#fff",
-            border: "none",
-            borderRadius: 8,
-            padding: "8px 18px",
-            fontWeight: "bold",
-            cursor: "pointer"
-          }}
-        >
+        <button type="submit" className={styles.sendBtn}>
           Enviar
         </button>
       </form>

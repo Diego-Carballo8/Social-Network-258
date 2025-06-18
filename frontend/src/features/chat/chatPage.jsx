@@ -11,35 +11,33 @@ export default function ChatPage() {
       <div
         style={{
           display: "flex",
-          height: "100vh",
-          background: "#07b6ce",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          minHeight: "100vh",
+          background: "#e0eafc",
+          padding: "0 0 40px 0",
         }}
       >
-        <div
-          style={{
-            width: 300,
-            background: "#fff",
-            borderRight: "1px solid #eee",
-            overflowY: "auto",
-          }}
-        >
+        <div style={{ width: 220, minWidth: 180, marginRight: 24 }}>
           <UserList
             onSelect={setSelectedUserId}
             selectedUserId={selectedUserId}
           />
         </div>
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
           {selectedUserId ? (
             <Chat userId={selectedUserId} />
           ) : (
-            <div style={{ color: "#888" }}>
+            <div
+              style={{
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#1976d2",
+                fontSize: "1.2rem",
+              }}
+            >
               Selecciona un usuario para chatear
             </div>
           )}

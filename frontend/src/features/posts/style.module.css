@@ -279,37 +279,34 @@
 /* Footer Nav */
 .footerNav {
   position: fixed;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   width: 100vw;
-  background: linear-gradient(90deg, #007bff 60%, #ff7f50 100%);
-  border-top: none;
+  height: 48px;
+  background: linear-gradient(90deg, #009ffd 60%, #2a2a72 80%, #ff6a00 100%);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0 6px 0;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
   z-index: 100;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  box-shadow: 0 -2px 8px #0002;
 }
 
 .navItem {
+  flex: 1;
+  text-align: center;
   color: #fff;
   text-decoration: none;
+  font-weight: 500;
   font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  transition: color 0.2s, transform 0.2s;
-}
-.navItem:hover {
-  color: #ffe082;
-  transform: scale(1.1);
+  transition: background 0.2s, color 0.2s;
+  padding: 0 8px;
 }
 
-.navItem i {
-  font-size: 1.5rem;
-  text-shadow: 0 2px 8px #eaf6ff;
+.navItem:hover {
+  color: #ffd700;
 }
 
 /* Responsive */

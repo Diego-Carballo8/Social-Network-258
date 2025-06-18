@@ -1,37 +1,41 @@
 .chatContainer {
-  max-width: 420px;
-  margin: 40px auto;
+  width: 100%;
+  max-width: 1100px; /* Puedes aumentar este valor si quieres */
+  margin: 32px auto;
   background: #f4f7fa;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px #0002;
+  border-radius: 24px;      /* Más redondeado */
+  box-shadow: 0 8px 32px #0002;
   display: flex;
   flex-direction: column;
-  height: 540px;
+  height: 80vh;             /* Más alto y responsivo */
+  justify-content: flex-end;
+  min-height: 500px;
   overflow: hidden;
   border: 1px solid #e0e0e0;
+  transition: max-width 0.3s;
 }
 
 .chatHeader {
-  background: #1976d2;
+  background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
   color: #fff;
-  padding: 18px 0;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  padding: 24px 0 20px 0;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: bold;
   letter-spacing: 1px;
-  box-shadow: 0 2px 8px #1976d222;
+  box-shadow: 0 4px 16px #1976d222;
 }
 
 .messagesContainer {
   flex: 1;
   overflow-y: auto;
-  padding: 18px 10px 10px 10px;
+  padding: 32px 40px 16px 40px;
   background: #f4f7fa;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
 .messageRow {
@@ -45,24 +49,25 @@
 }
 
 .messageBubble {
-  max-width: 75%;
-  padding: 10px 16px;
-  border-radius: 18px 18px 18px 4px;
-  font-size: 15px;
+  max-width: 80%;           /* Antes: 75% */
+  padding: 14px 22px;       /* Más espacio */
+  border-radius: 22px 22px 22px 8px;
+  font-size: 1.05rem;
   background: #fff;
   color: #222;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   word-break: break-word;
-  box-shadow: 0 1px 4px #1976d211;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px #1976d211;
   border: 1px solid #e0e0e0;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
 .messageRow.me .messageBubble {
-  background: #1976d2;
+  background: linear-gradient(135deg, #1976d2 60%, #42a5f5 100%);
   color: #fff;
-  border-radius: 18px 18px 4px 18px;
+  border-radius: 22px 22px 8px 22px;
   border: 1px solid #1976d2;
+  box-shadow: 0 2px 12px #1976d244;
 }
 
 .timestamp {
@@ -75,25 +80,26 @@
 
 .inputContainer {
   display: flex;
-  border-top: 1px solid #eee;
-  padding: 12px 10px;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 18px 24px;
   background: #fff;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  gap: 8px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .input {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 15px;
-  background: #f0f0f0;
-  margin-right: 4px;
-  transition: box-shadow 0.2s;
-  box-shadow: 0 1px 2px #1976d211;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid #00bcd4;
+  margin-bottom: 8px;
 }
 
 .input:focus {
@@ -101,21 +107,23 @@
 }
 
 .sendBtn {
-  background: #1976d2;
-  color: #fff;
+  width: 100vw;
+  margin-left: -24px; /* Igual al padding lateral de .inputContainer */
+  border-radius: 0 0 18px 18px;
+  box-sizing: border-box;
+  font-size: 1.15rem;
+  padding: 18px 0;
   border: none;
-  border-radius: 10px;
-  padding: 10px 22px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 15px;
-  box-shadow: 0 1px 4px #1976d211;
   transition: background 0.2s, box-shadow 0.2s;
+  background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+  color: #fff;
 }
 
 .sendBtn:hover {
-  background: #1565c0;
-  box-shadow: 0 2px 8px #1976d244;
+  background: linear-gradient(90deg, #1565c0 60%, #1976d2 100%);
+  box-shadow: 0 4px 16px #1976d244;
 }
 
 .backBtn {

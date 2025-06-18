@@ -5,6 +5,7 @@ import Home from './features/posts/Home';
 import PrivateRoute from './shared/components/PrivateRoute';
 import ChatPage from "./features/chat/ChatPage";
 import UserList from "./features/chat/UserList";
+import FooterNav from "./shared/components/FooterNav";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         {/* Redirigir a /login si no se encuentra la ruta */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
+      <FooterNav />
     </Router>
   );
 }

@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // Limpiar campos al entrar al login
+  useEffect(() => {
+    setFormData({ email: '', password: '' });
+    setError('');
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -58,11 +64,12 @@ const Login = () => {
 
           <form onSubmit={handleSubmit}>
             <input
-              type="email"
+              type="text"
               name="email"
               placeholder="Teléfono, usuario o correo electrónico"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
             <input
